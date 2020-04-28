@@ -4,8 +4,8 @@ class Pared{
   Pared(){
     vertices = new ArrayList<PVector>(); //Inicializacion
     vertices.add(new PVector(0,100,0));
-    vertices.add(new PVector(0,80,100));
-    vertices.add(new PVector(0,0,40));
+    vertices.add(new PVector(0,100,140));
+    vertices.add(new PVector(0,0,70));
     vertices.add(new PVector(0,0,0));
   }
 

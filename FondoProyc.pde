@@ -2,9 +2,11 @@ Eje3D eje;
 float x,y,z;
 Pared p;
 Techo t;
+PImage img; Piso blanco;
+int [][] M;
 
 void setup(){
-  size(512,512,P3D);
+  size(700,700,P3D);
   eje = new Eje3D();
   
   x = width/2;
@@ -13,6 +15,10 @@ void setup(){
   
   p = new Pared();
   t = new Techo();
+  
+  //M = new PVector[5][5];
+  blanco = new Piso(50,50);
+  
 }
 
 void draw(){
@@ -40,14 +46,6 @@ void draw(){
   //  box(80,80,120);
   //endShape();
   
-  //Rectangulos - Lineas
-  beginShape();
-    stroke(#B71C1C);
-    line(0,100,0, 0,80,100);
-    line(0,80,100, 0,0,40);
-    line(0,0,40, 0,0,0);
-    line(0,0,0, 0,100,0);
-  endShape();
   
   //2D a 3D
   //pushMatrix();
@@ -72,5 +70,23 @@ void draw(){
     rotateZ(radians(270));
     t.DibujarTec();
   popMatrix();
+  
+  
+  // PISO
+  pushMatrix();
+    //scale(0.25,0.25);
+    for(int i=0; i<5; i++){ //Filas
+        for(int j=0; j<5; j++){//columnas
+           if((i+j) % 2 == 0){
+             fill(0);
+           } else{
+             fill(255);
+           } rect(i*20,j*20, 20, 20);
+        }
+    }
+    
+    
+  popMatrix();
+  
   
 }
