@@ -4,10 +4,18 @@ Pared p;
 Techo t;
 PImage img; Piso blanco;
 int [][] M;
+PShape modelo;
+PShape mesa;
+PShape jarron;
+PShape florero;
 
 void setup(){
   size(700,700,P3D);
   eje = new Eje3D();
+  modelo = loadShape("silla_notextura.obj");
+  mesa = loadShape("Mesa1.obj");
+  jarron = loadShape("Jarron.obj");
+  florero = loadShape("12970_snowdrop_flower_v1_l2.obj");
   
   x = width/2;
   y = height/2;
@@ -87,6 +95,41 @@ void draw(){
     
     
   popMatrix();
+ 
+  //MODELO
+  pushMatrix();
+  scale(12);
+  translate(2,5,3);
+  rotateX(radians(90));
+  //rotateY(radians(random(0,180)));
+  shape(modelo);
+  popMatrix();
   
+  // MESA
+  pushMatrix();
+  scale(25);
+  translate(3,2,1);
+  rotateX(radians(90));
+  //rotateY(radians(random(0,180)));
+  shape(mesa);
+  popMatrix();
+  
+  //Jarron
+  pushMatrix();
+  scale(10);
+  translate(12,10,5);
+  rotateX(radians(90));
+  //rotateY(radians(random(0,180)));
+  shape(jarron);
+  popMatrix();
+  
+  //Florero
+  pushMatrix();
+  scale(5);
+  translate(15,10,13);
+  //rotateX(radians(90));
+  //rotateY(radians(random(0,180)));
+  shape(florero);
+  popMatrix();
   
 }
